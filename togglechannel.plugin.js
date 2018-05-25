@@ -55,12 +55,12 @@ toggleChannel.prototype.getName=function()
 
 toggleChannel.prototype.getDescription=function()
 {
-    return "right click member list button to hide channel list";
+    return "right click direct message (friend) button to hide channel list";
 };
 
 toggleChannel.prototype.getVersion=function()
 {
-    return "2.1";
+    return "2.2";
 };
 
 toggleChannel.prototype.getAuthor=function()
@@ -70,18 +70,26 @@ toggleChannel.prototype.getAuthor=function()
 
 toggleChannel.prototype.hookButton=function()
 {
-    var hookButton=$(".icon-1R19_H");
+    // var hookButton=$(".icon-1R19_H");
+    var hookButton=$(".friends-icon");
 
-    if (hookButton.length!=5)
+    // if (hookButton.length!=5)
+    // {
+    //     setTimeout(this.hookButton,100);
+    //     return;
+    // }
+
+    // hookButton=hookButton.eq(2);
+
+    if (!hookButton)
     {
         setTimeout(this.hookButton,100);
         return;
     }
 
-    hookButton=hookButton.eq(2);
-
     hookButton.off("contextmenu");
-    hookButton.on("contextmenu",function(e){
+    hookButton.on("contextmenu",(e)=>{
+        e.preventDefault();
         $(".channels-Ie2l6A").toggleClass("channels-wrap-hide");
     });
 
