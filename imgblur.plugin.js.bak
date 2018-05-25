@@ -1,0 +1,128 @@
+//META{"name":"imgBlur"}*//
+
+var imgBlur=function(){};
+
+imgBlur.prototype.mainSettings;
+imgBlur.prototype.test="abc";
+
+imgBlur.prototype.start=function()
+{
+    this.startup();
+    
+    this.main();
+};
+
+imgBlur.prototype.load=function()
+{
+    this.startup();
+    
+    this.main();
+};
+
+imgBlur.prototype.unload=function()
+{
+
+};
+
+imgBlur.prototype.stop=function()
+{
+
+};
+
+imgBlur.prototype.onMessage=function()
+{
+    this.main();
+};
+
+imgBlur.prototype.onSwitch=function()
+{
+    this.main();
+};
+
+imgBlur.prototype.observer=function (e)
+{
+    //raw MutationObserver event for each mutation
+};
+
+imgBlur.prototype.getSettingsPanel=function()
+{
+    var html=`
+<textarea class="input-links" style="width:400px;height:200px;resize:none"></textarea>
+
+<div>
+  <a onclick="imgBlur.prototype.randomiserLink()" style="cursor:pointer">set randomiser images</a>
+</div>
+`;
+    
+    return html;
+};
+
+imgBlur.prototype.getName=function()
+{
+    return "imgblur";
+};
+
+imgBlur.prototype.getDescription=function()
+{
+    return "fuck jesons imgs";
+};
+
+imgBlur.prototype.getVersion=function()
+{
+    return "1";
+};
+
+imgBlur.prototype.getAuthor=function()
+{
+    return "rishona";
+};
+
+imgBlur.prototype.main=function()
+{
+    var messages=$(".comment");
+    var imgBlur=this;
+
+    messages.each(function(x,e){
+        if (messages.eq(x)
+            .find(".user-name").css("color")==imgBlur.mainSettings.match)
+        {
+            messages.eq(x).find(".image").addClass("jason-blur");
+        }
+    });
+};
+
+imgBlur.prototype.startup=function()
+{
+    var settings=localStorage["imgBlurSettings"];
+
+    if (settings==undefined)
+    {
+        settings='{"match":"rgb(168, 67, 0)","links":[]}';
+    }
+
+    var imgBlur=this;
+    this.mainSettings=JSON.parse(settings);
+
+    $(window).on("focus",function(){
+        imgBlur.main();
+    });
+};
+
+imgBlur.prototype.randomiserLink=function()
+{
+    var inputLinks=$(".input-links");
+
+    var linkArray=inputLinks[0].value.split("\n");
+    var linkArray2=[];
+
+    for (var x=0;x<linkArray.length;x++)
+    {
+        if (linkArray[x].slice(0,19)=="http://i.imgur.com/")
+        {
+            linkArray2.push(linkArray[x]);
+        }
+    }
+
+    console.log(linkArray2);
+    this.mainSettings.links=linkArray2.slice();
+};
