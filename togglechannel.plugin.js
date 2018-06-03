@@ -1,5 +1,17 @@
 //META{"name":"toggleChannel"}*//
 
+/*custom css (paste it in better discord custom css area):
+.channels-Ie2l6A.channels-wrap-hide
+{
+    display:none;
+}
+
+.guilds .guild.selected.unread::before
+{
+    background-color: #f04747;
+}
+*/
+
 var toggleChannel=function(){};
 
 toggleChannel.prototype.start=function()
