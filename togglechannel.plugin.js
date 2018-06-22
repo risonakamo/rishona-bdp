@@ -21,12 +21,10 @@ class toggleChannel
 
     load()
     {
-        var this1=this;
-        this1.hookButton();
+        this.runButtonHook();
 
-        $(".guild").on("click",function(e){
-            this1.hookButton();
-            console.log("hey");
+        $(".guild").on("click",(e)=>{
+            this.runButtonHook();
         });
     }
 
@@ -80,19 +78,19 @@ class toggleChannel
         return "rishona";
     }
 
-    hookButton()
+    runButtonHook()
     {
         //button to attach toggle channel to
-        var hookButton=$(".icon-1R19_H[name=People]");
+        var attachbutton=$(".icon-1R19_H[name=People]");
 
-        if (!hookButton)
+        if (!attachbutton.length)
         {
-            setTimeout(this.hookButton,100);
+            setTimeout(this.runButtonHook,100);
             return;
         }
 
-        hookButton.off("contextmenu");
-        hookButton.on("contextmenu",(e)=>{
+        attachbutton.off("contextmenu");
+        attachbutton.on("contextmenu",(e)=>{
             e.preventDefault();
 
             //class to attach hidden class to
