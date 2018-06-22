@@ -70,7 +70,7 @@ class toggleChannel
 
     getVersion()
     {
-        return "2.2.1";
+        return "2.3";
     }
 
     getAuthor()
@@ -80,8 +80,10 @@ class toggleChannel
 
     runButtonHook()
     {
-        //button to attach toggle channel to
+        //button to attach toggle channel to (users in current discord channel button)
         var attachbutton=$(".icon-1R19_H[name=People]");
+        //other button (friend button)
+        var friendButton=$(".guild:first");
 
         if (!attachbutton.length)
         {
@@ -96,5 +98,21 @@ class toggleChannel
             //class to attach hidden class to
             $(".channels-Ie2l6A").toggleClass("channels-wrap-hide");
         });
+
+        friendButton.off("contextmenu");
+        friendButton.on("contextmenu",(e)=>{
+            //should be same as above event. not a function because discord
+            //loses reference of This often for some reason
+            e.preventDefault();
+            $(".channels-Ie2l6A").toggleClass("channels-wrap-hide");
+        });
+    }
+
+    executeChannelHide(e)
+    {
+        e.preventDefault();
+
+        //class to attach hidden class to
+        $(".channels-Ie2l6A").toggleClass("channels-wrap-hide");
     }
 }
