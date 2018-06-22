@@ -82,16 +82,8 @@ toggleChannel.prototype.getAuthor=function()
 
 toggleChannel.prototype.hookButton=function()
 {
-    // var hookButton=$(".icon-1R19_H");
-    var hookButton=$(".friends-icon");
-
-    // if (hookButton.length!=5)
-    // {
-    //     setTimeout(this.hookButton,100);
-    //     return;
-    // }
-
-    // hookButton=hookButton.eq(2);
+    //button to attach toggle channel to
+    var hookButton=$(".icon-1R19_H[name=People]");
 
     if (!hookButton)
     {
@@ -102,6 +94,8 @@ toggleChannel.prototype.hookButton=function()
     hookButton.off("contextmenu");
     hookButton.on("contextmenu",(e)=>{
         e.preventDefault();
+
+        //class to attach hidden class to
         $(".channels-Ie2l6A").toggleClass("channels-wrap-hide");
     });
 
