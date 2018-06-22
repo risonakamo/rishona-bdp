@@ -65,7 +65,7 @@ class toggleChannel
 
     getDescription()
     {
-        return "right click direct message (friend) button to hide channel list";
+        return "right click direct message (friend) button or Member List button to hide channel list";
     }
 
     getVersion()
