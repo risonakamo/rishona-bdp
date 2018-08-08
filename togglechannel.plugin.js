@@ -23,7 +23,8 @@ class toggleChannel
     {
         this.runButtonHook();
 
-        $(".guild").on("click",(e)=>{
+        //refresh hook when clicking on server icons
+        $(".da-guild").on("click",(e)=>{
             this.runButtonHook();
         });
     }
@@ -70,7 +71,7 @@ class toggleChannel
 
     getVersion()
     {
-        return "2.3";
+        return "2.3.1";
     }
 
     getAuthor()
@@ -83,7 +84,7 @@ class toggleChannel
         //button to attach toggle channel to (users in current discord channel button)
         var attachbutton=$(".icon-1R19_H[name=People]");
         //other button (friend button)
-        var friendButton=$(".guild:first");
+        var friendButton=$(".guild-1EfMGQ:first");
 
         if (!attachbutton.length)
         {
