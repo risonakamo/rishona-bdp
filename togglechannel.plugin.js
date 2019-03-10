@@ -17,30 +17,21 @@ class toggleChannel
     load()
     {
         this.runButtonHook();
-
-        this.initialBind();
     }
 
-    initialBind()
-    {
-        console.log($(".da-homeButton"));
-
-        //refresh hook when clicking on server icons
-        $(".container-2td-dC").on("click",(e)=>{
-            console.log("button hook");
-            this.runButtonHook();
-        });
-    }
-
+    //attempt to attach hide channel event to target buttons
     runButtonHook()
     {
+        console.log("button hook running");
+
         //button to attach toggle channel to (users in current discord channel button)
         var attachbutton=$(".icon-1R19_H[name=People]");
         //other button (friend button)
         var friendButton=$(".da-homeButton");
 
-        if (!attachbutton.length)
+        if (!attachbutton.length || !friendButton.length)
         {
+            console.log("button hook retry");
             setTimeout(this.runButtonHook,100);
             return;
         }
