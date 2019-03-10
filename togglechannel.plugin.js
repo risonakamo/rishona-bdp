@@ -22,14 +22,14 @@ class toggleChannel
     //attempt to attach hide channel event to target buttons
     runButtonHook()
     {
-        console.log("button hook running");
+        console.log("button hook start");
 
         //button to attach toggle channel to (users in current discord channel button)
         var attachbutton=$(".icon-1R19_H[name=People]");
         //other button (friend button)
-        var friendButton=$(".da-homeButton");
+        var friendButton=$(".homeButton-2Cw51C");
 
-        if (!attachbutton.length || !friendButton.length)
+        if (!attachbutton.length && !friendButton.length)
         {
             console.log("button hook retry");
             setTimeout(this.runButtonHook,100);
@@ -51,6 +51,8 @@ class toggleChannel
             e.preventDefault();
             $(".channels-Ie2l6A").toggleClass("channels-wrap-hide");
         });
+
+        console.log("button hook complete");
     }
 
     executeChannelHide(e)
@@ -83,7 +85,7 @@ class toggleChannel
 
     onSwitch()
     {
-
+        this.runButtonHook();
     }
 
     observer(e)
@@ -108,7 +110,7 @@ class toggleChannel
 
     getVersion()
     {
-        return "2.3.1";
+        return "3.0.0";
     }
 
     getAuthor()
