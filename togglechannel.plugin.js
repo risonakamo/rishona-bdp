@@ -110,7 +110,7 @@ class toggleChannel
 
     getVersion()
     {
-        return "3.0.0";
+        return "3.0.1";
     }
 
     getAuthor()
