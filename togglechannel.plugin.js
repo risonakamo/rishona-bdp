@@ -25,9 +25,9 @@ class toggleChannel
         console.log("button hook start");
 
         //button to attach toggle channel to (users in current discord channel button)
-        var attachbutton=$(".icon-1R19_H[name=People]");
+        var attachbutton=$(".icon-22AiRD[name=Nova_People]");
         //other button (friend button)
-        var friendButton=$(".homeButton-2Cw51C");
+        var friendButton=$(".button-OhfaWu");
 
         if (!attachbutton.length && !friendButton.length)
         {
