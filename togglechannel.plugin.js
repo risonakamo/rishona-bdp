@@ -1,7 +1,7 @@
 //META{"name":"toggleChannel"}*//
 
 /*custom css (paste it in better discord custom css area):
-.channels-Ie2l6A.channels-wrap-hide
+.da-sidebar.channels-wrap-hide
 {
     display:none;
 }
@@ -12,6 +12,7 @@
 }
 */
 
+const channelClass=".da-sidebar";
 class toggleChannel
 {
     load()
@@ -27,7 +28,7 @@ class toggleChannel
         //button to attach toggle channel to (users in current discord channel button)
         var attachbutton=$(".icon-22AiRD[name=Nova_People]");
         //other button (friend button)
-        var friendButton=$(".button-OhfaWu");
+        var friendButton=$(".svg-1X37T1");
 
         if (!attachbutton.length && !friendButton.length)
         {
@@ -41,7 +42,8 @@ class toggleChannel
             e.preventDefault();
 
             //class to attach hidden class to
-            $(".channels-Ie2l6A").toggleClass("channels-wrap-hide");
+            $(channelClass).toggleClass("channels-wrap-hide");
+            console.log(document.querySelector(channelClass));
         });
 
         friendButton.off("contextmenu");
@@ -49,7 +51,8 @@ class toggleChannel
             //should be same as above event. not a function because discord
             //loses reference of This often for some reason
             e.preventDefault();
-            $(".channels-Ie2l6A").toggleClass("channels-wrap-hide");
+            $(channelClass).toggleClass("channels-wrap-hide");
+            console.log("hey");
         });
 
         console.log("button hook complete");
@@ -60,7 +63,7 @@ class toggleChannel
         e.preventDefault();
 
         //class to attach hidden class to
-        $(".channels-Ie2l6A").toggleClass("channels-wrap-hide");
+        $(channelClass).toggleClass("channels-wrap-hide");
     }
 
     start()
@@ -110,7 +113,7 @@ class toggleChannel
 
     getVersion()
     {
-        return "3.0.1";
+        return "3.0.2";
     }
 
     getAuthor()
